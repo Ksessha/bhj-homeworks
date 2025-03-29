@@ -1,4 +1,4 @@
-const timerElement = document.getElementsById('timer');
+const timerElement = document.getElementById('timer');
 
 let time = parseInt(timerElement.textContent);
 
