@@ -1,14 +1,17 @@
 const timerElement = document.getElementById('timer');
 
-let time = parseInt(timerElement.textContent);
+let timeLeft = parseInt(timerElement.textContent);
 
-function UpdateTime(){
-    time--;
-    timerElement.textContent = time;
+let timerInterval;
 
-    if(time<=0){
+function updateTimer() {
+    timeLeft--;
+    timerElement.textContent = timeLeft;
+    
+    if (timeLeft <= 0) {
         clearInterval(timerInterval);
         alert('Вы победили в конкурсе!');
     }
 }
-const timerInterval = setInterval(updateTimer, 1000);
+
+timerInterval = setInterval(updateTimer, 1000);
