@@ -1,17 +1,21 @@
 const cookie = document.getElementById('cookie');
-const counter = document.getElementById('clicker__counter');
+const clickCounter = document.getElementById('clicker__counter');
 
-let isCookieBig = false;
+let clickCount = 0;
+let isBig = false;
 
-cookie.onlick = function(){
-    counter.textContent = parseInt(counter.textContent) + 1;
-
-    if(isCookieBig){
+function resizeCookie() {
+    if (isBig) {
         cookie.width = 200;
-    }
-    else{
+    } else {
         cookie.width = 220;
     }
-
-    isCookieBig = !isCookieBig;
+    isBig = !isBig;
 }
+
+cookie.addEventListener('click', function() {
+    clickCount++;
+    clickCounter.textContent = clickCount;
+
+    resizeCookie();
+});
