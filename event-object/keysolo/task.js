@@ -17,24 +17,23 @@ class Game {
   }
 
   registerEvents() {
-    registerEvents(); {
-      document.addEventListener('keydown', (event) => {
-          if (!this.currentSymbol){
-            return;
-          }
-          const pressedKey = event.key.toLowerCase();
-          const currentChar = this.currentSymbol.textContent.toLowerCase();
-          if (pressedKey === currentChar) {
-              this.success();
-          } else {
-              this.fail();
-          }
-      });
-    }
+    document.addEventListener('keydown', (event) => {
+        if (!this.currentSymbol) return;
+        
+        const pressedKey = event.key.toLowerCase();
+        const currentChar = this.currentSymbol.textContent.toLowerCase();
+        
+        if (pressedKey === currentChar) {
+            this.success();
+        } else {
+            this.fail();
+        }
+    });
   }
 
   success() {
-    if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
+    if(this.currentSymbol.classList.contains("symbol_current")) 
+      this.currentSymbol.classList.remove("symbol_current");
     this.currentSymbol.classList.add('symbol_correct');
     this.currentSymbol = this.currentSymbol.nextElementSibling;
 
@@ -60,7 +59,6 @@ class Game {
 
   setNewWord() {
     const word = this.getWord();
-
     this.renderWord(word);
   }
 
@@ -96,5 +94,4 @@ class Game {
   }
 }
 
-new Game(document.getElementById('game'))
-
+new Game(document.getElementById('game'));
